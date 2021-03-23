@@ -12,7 +12,7 @@
           ssh_keys: 
               - anurag-laptop
               - anurag@devops01.nue.anuragbhatia.com
-          region: New Jersey
+          region: Singapore
           private_network_enabled: yes
           state: present
           force: yes
