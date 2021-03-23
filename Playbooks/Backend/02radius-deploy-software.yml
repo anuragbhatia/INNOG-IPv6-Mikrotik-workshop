@@ -1,0 +1,36 @@
+---
+  - hosts: radius.lab.innog.net
+    gather_facts: no
+    user: root
+
+    tasks: 
+      - name: Ensure packages are latest
+        apt: name=* state=latest
+
+      - name: Ensure freeradius is installed
+        apt: name=freeradius state=latest
+
+      - name: Update freeradius clients.conf
+        blockinfile: 
+          path: /etc/freeradius/3.0/clients.conf
+          block: |
+              client innog_lab {
+                ipaddr = 2001:db8::/32
+                secret=SomeRandomSharedSecret
+              }
+          state: present
+
+      - name: Update users 
+        blockinfile: 
+          path: /etc/freeradius/3.0/users
+          block: |
+              #reference format to add a user "test" with password "test"
+              test    Cleartext-Password:=test
+                      Acct-Interim-Interval:=5  #This is optional attributes to add to reply, one per line.
+          state: present  
+
+      - name: Restart & enable autostart for freeradius
+        ansible.builtin.systemd:
+          name: freeradius
+          state: restarted
+          enabled: yes 

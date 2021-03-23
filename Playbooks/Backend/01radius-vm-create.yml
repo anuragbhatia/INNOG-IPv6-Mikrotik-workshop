@@ -1,0 +1,23 @@
+---
+  - hosts: localhost 
+    tasks: 
+
+      - name: Create VM to run Radius server 
+        ngine_io.vultr.vultr_server:
+          api_account: default
+          api_retries: 1
+          name: radius.lab.innog.net
+          os: Ubuntu 20.04 x64
+          plan: 1024 MB RAM,25 GB SSD,1.00 TB BW
+          ssh_keys: 
+              - anurag-laptop
+              - anurag@devops01.nue.anuragbhatia.com
+          region: New Jersey
+          private_network_enabled: yes
+          state: present
+          force: yes
+        # register: vultr_output
+
+      # - debug: 
+      #     var: vultr_output    
+

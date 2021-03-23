@@ -1,0 +1,6 @@
+plugin: vultr
+keyed_groups:
+  - prefix: vultr_region
+    key: region | lower
+  - separator: ""
+    key: os

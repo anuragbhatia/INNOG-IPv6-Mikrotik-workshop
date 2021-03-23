@@ -1,0 +1,5 @@
+- name: Create VM on Vultr
+  import_playbook: 01radius-vm-create.yml
+
+- name: Deploy freeradius on the VM
+  import_playbook: 02radius-deploy-software.yml  
