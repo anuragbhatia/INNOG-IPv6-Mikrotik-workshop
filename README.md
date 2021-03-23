@@ -1,4 +1,4 @@
-# INNOG-IPv6-Mikrotik-workshop
+# INNOG IPv6 Mikrotik Workshop
 Project for INNOG IPv6 workshop
 
 Objective here is to enable & encourage operators to deploy IPv6 with Mikrotik on the last mile networks. 
