@@ -5,6 +5,10 @@
 ---
   - hosts: localhost 
     gather_facts: no
+
+    vars:
+        api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
+
     tasks: 
 
       - name: Create P2P Networks for group 1
@@ -12,6 +16,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:
         - { name: 'R1-R2', cidr: '10.100.0.0/24'} 
@@ -25,6 +30,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:
         - { name: 'R6-R7', cidr: '10.100.5.0/24'}
@@ -38,6 +44,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:
         - { name: 'R11-R12', cidr: '10.100.10.0/24'}
@@ -51,6 +58,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:        
         - { name: 'R26-R27', cidr: '10.100.15.0/24'}
@@ -64,6 +72,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:        
         - { name: 'R16-R17', cidr: '10.100.20.0/24'}
@@ -77,6 +86,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:                
         - { name: 'R21-R22', cidr: '10.100.25.0/24'}
@@ -90,6 +100,7 @@
           name: "{{ item.name }}"
           cidr: "{{ item.cidr }}"
           region: Singapore
+          api_key: "{{ api_key }}"
           state: present
         loop:                
         - { name: 'R5-GW', cidr: '10.100.30.0/24'}

@@ -1,5 +1,9 @@
 ---
   - hosts: localhost 
+
+    vars:
+        api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
+        
     tasks: 
 
       - name: Create VM to run Radius server 
@@ -13,7 +17,7 @@
               - anurag-laptop
               - anurag@devops01.nue.anuragbhatia.com
           region: Singapore
-          private_network_enabled: yes
+          # private_network_enabled: yes
           state: present
           force: yes
         # register: vultr_output

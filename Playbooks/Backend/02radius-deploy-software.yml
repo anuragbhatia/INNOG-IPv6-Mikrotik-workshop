@@ -3,6 +3,7 @@
     gather_facts: no
     user: root
 
+
     tasks: 
       - name: Ensure packages are latest
         apt: name=* state=latest

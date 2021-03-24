@@ -1,0 +1,104 @@
+# This playbook will deploy required management networks
+# IPs added here are purely dummy ones as Vultr APIs needs it. These networks are layer 2
+# and hence what IP we use doesn't matters. Vultr API expects minimum of /29 while we are using /31s. 
+
+---
+  - hosts: localhost 
+    gather_facts: no
+  
+    vars:
+        api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
+
+    tasks: 
+
+      - name: Create out of band management network 
+        ngine_io.vultr.vultr_network:
+          name: "{{ item.name }}"
+          cidr: "{{ item.cidr }}"
+          region: Singapore
+          api_key: "{{ api_key }}"
+          state: present
+        loop:
+        - { name: 'mgmt', cidr: '10.102.1.0/24'}
+        tags: create
+
+
+      - name: Attach each provider router to private network
+        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop: 
+        - {router: 'R1', action: 'add'}
+        - {router: 'R2', action: 'add'}
+        - {router: 'R3', action: 'add'}
+        - {router: 'R4', action: 'add'}
+        - {router: 'R5', action: 'add'}
+        - {router: 'R6', action: 'add'}
+        - {router: 'R7', action: 'add'}
+        - {router: 'R8', action: 'add'}
+        - {router: 'R9', action: 'add'}
+        - {router: 'R10', action: 'add'}
+        - {router: 'R11', action: 'add'}
+        - {router: 'R12', action: 'add'}
+        - {router: 'R13', action: 'add'}
+        - {router: 'R14', action: 'add'}
+        - {router: 'R15', action: 'add'}
+        - {router: 'R16', action: 'add'}
+        - {router: 'R17', action: 'add'}
+        - {router: 'R18', action: 'add'}
+        - {router: 'R19', action: 'add'}
+        - {router: 'R20', action: 'add'}
+        - {router: 'R21', action: 'add'}
+        - {router: 'R22', action: 'add'}
+        - {router: 'R23', action: 'add'}
+        - {router: 'R24', action: 'add'}
+        - {router: 'R25', action: 'add'}
+        - {router: 'R26', action: 'add'}
+        - {router: 'R27', action: 'add'}
+        - {router: 'R28', action: 'add'}
+        - {router: 'R29', action: 'add'}
+        - {router: 'R30', action: 'add'}
+
+      - name: Attach each customer router to private network
+        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop:           
+        - {router: 'CPE1', action: 'add'}
+        - {router: 'CPE2', action: 'add'}
+        - {router: 'CPE3', action: 'add'}
+        - {router: 'CPE4', action: 'add'}
+        - {router: 'CPE5', action: 'add'}
+        - {router: 'CPE6', action: 'add'}
+        - {router: 'CPE7', action: 'add'}
+        - {router: 'CPE8', action: 'add'}
+        - {router: 'CPE9', action: 'add'}
+        - {router: 'CPE10', action: 'add'}
+        - {router: 'CPE11', action: 'add'}
+        - {router: 'CPE12', action: 'add'}
+        - {router: 'CPE13', action: 'add'}
+        - {router: 'CPE14', action: 'add'}
+        - {router: 'CPE15', action: 'add'}
+        - {router: 'CPE16', action: 'add'}
+        - {router: 'CPE17', action: 'add'}
+        - {router: 'CPE18', action: 'add'}
+        - {router: 'CPE19', action: 'add'}
+        - {router: 'CPE20', action: 'add'}
+        - {router: 'CPE21', action: 'add'}
+        - {router: 'CPE22', action: 'add'}
+        - {router: 'CPE23', action: 'add'}
+        - {router: 'CPE24', action: 'add'}
+        - {router: 'CPE25', action: 'add'}
+        - {router: 'CPE26', action: 'add'}
+        - {router: 'CPE27', action: 'add'}
+        - {router: 'CPE28', action: 'add'}
+        - {router: 'CPE29', action: 'add'}
+        - {router: 'CPE30', action: 'add'}          
+
+      - name: Attach backend infra to private network
+        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop:           
+        - {router: 'gw.lab.innog.net', action: 'add'}
+        - {router: 'radius.lab.innog.net', action: 'add'}        
