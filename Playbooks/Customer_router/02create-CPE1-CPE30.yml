@@ -1,0 +1,87 @@
+---
+  - hosts: localhost 
+
+    vars:
+        api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
+    
+    tasks: 
+      - name: Create customer routers in the Cloud
+        ngine_io.vultr.vultr_server:
+          api_account: default
+          api_retries: 1
+          name: "{{ item }}"
+          snapshot: Mikrotik1
+          plan: 1024 MB RAM,25 GB SSD,1.00 TB BW
+          region: Singapore
+          api_key: "{{ api_key }}"
+          state: stopped # Do not run until private networks is attached
+          force: yes          
+        loop:
+          - CPE1
+          - CPE2
+          - CPE3
+          - CPE4
+          - CPE5
+          - CPE6
+          - CPE7
+          - CPE8
+          - CPE9
+          - CPE10
+          - CPE11
+          - CPE12
+          - CPE13
+          - CPE14
+          - CPE15
+          - CPE16
+          - CPE17
+          - CPE18
+          - CPE19
+          - CPE20
+          - CPE21
+          - CPE22
+          - CPE23
+          - CPE24
+          - CPE25
+          - CPE26
+          - CPE27
+          - CPE28
+          - CPE29
+          - CPE30
+        async: 1800
+        poll: 0
+
+      - name: Attach each provider router to respective circuits in group 1
+        shell: ../common/private-network-manage.sh "{{ item.router }}" "{{ item.network }}" "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop: 
+        - {router: 'CPE1', network: 'R1-CPE1', action: 'add'}
+        - {router: 'CPE2', network: 'R2-CPE2', action: 'add'}
+        - {router: 'CPE3', network: 'R3-CPE3', action: 'add'}
+        - {router: 'CPE4', network: 'R4-CPE4', action: 'add'}
+        - {router: 'CPE5', network: 'R5-CPE5', action: 'add'}
+        - {router: 'CPE6', network: 'R6-CPE6', action: 'add'}
+        - {router: 'CPE7', network: 'R7-CPE7', action: 'add'}
+        - {router: 'CPE8', network: 'R8-CPE8', action: 'add'}
+        - {router: 'CPE9', network: 'R9-CPE9', action: 'add'}
+        - {router: 'CPE10', network: 'R10-CPE10', action: 'add'}
+        - {router: 'CPE11', network: 'R11-CPE11', action: 'add'}
+        - {router: 'CPE12', network: 'R12-CPE12', action: 'add'}
+        - {router: 'CPE13', network: 'R13-CPE13', action: 'add'}
+        - {router: 'CPE14', network: 'R14-CPE14', action: 'add'}
+        - {router: 'CPE15', network: 'R15-CPE15', action: 'add'}
+        - {router: 'CPE16', network: 'R16-CPE16', action: 'add'}
+        - {router: 'CPE17', network: 'R17-CPE17', action: 'add'}
+        - {router: 'CPE18', network: 'R18-CPE18', action: 'add'}
+        - {router: 'CPE19', network: 'R19-CPE19', action: 'add'}
+        - {router: 'CPE20', network: 'R20-CPE20', action: 'add'}
+        - {router: 'CPE21', network: 'R21-CPE21', action: 'add'}
+        - {router: 'CPE22', network: 'R22-CPE22', action: 'add'}
+        - {router: 'CPE23', network: 'R23-CPE23', action: 'add'}
+        - {router: 'CPE24', network: 'R24-CPE24', action: 'add'}
+        - {router: 'CPE25', network: 'R25-CPE25', action: 'add'}
+        - {router: 'CPE26', network: 'R26-CPE26', action: 'add'}
+        - {router: 'CPE27', network: 'R27-CPE27', action: 'add'}
+        - {router: 'CPE28', network: 'R28-CPE28', action: 'add'}
+        - {router: 'CPE29', network: 'R29-CPE29', action: 'add'}
+        - {router: 'CPE30', network: 'R30-CPE30', action: 'add'}

@@ -24,7 +24,7 @@
 
 
       - name: Attach each provider router to private network
-        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
         loop: 
@@ -60,7 +60,7 @@
         - {router: 'R30', action: 'add'}
 
       - name: Attach each customer router to private network
-        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
         loop:           
@@ -96,7 +96,7 @@
         - {router: 'CPE30', action: 'add'}          
 
       - name: Attach backend infra to private network
-        shell: ./private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
         loop:           
