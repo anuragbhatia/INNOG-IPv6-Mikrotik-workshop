@@ -1,300 +1,553 @@
-R1:
-  asn: 65101
-  ipv4: 172.20.0.1/24
-  ipv6: 2001:db8:d::1/64
-  prefix_origin: 2001:db8:01::/40 
+R:
+ R1:
+   index: 1
+   asn: 65101
+   winbox_port: 8001
+   ipv4: 172.20.0.1
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::1
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:01::/40 
 
-R2:
-  asn: 65102
-  ipv4: 172.20.0.2/24
-  ipv6: 2001:db8:d::2/64
-  prefix_origin: 2001:db8:02::/40 
+ R2:
+   index: 2
+   asn: 65102
+   winbox_port: 8002
+   ipv4: 172.20.0.2
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::2
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:02::/40 
 
-R3:
-  asn: 65103
-  ipv4: 172.20.0.3/24
-  ipv6: 2001:db8:d::3/64
-  prefix_origin: 2001:db8:03::/40 
+ R3:
+   index: 3
+   asn: 65103
+   winbox_port: 8003
+   ipv4: 172.20.0.3
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::3
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:03::/40 
 
-R4:
-  asn: 65104
-  ipv4: 172.20.0.4/24
-  ipv6: 2001:db8:d::4/64
-  prefix_origin: 2001:db8:04::/40 
+ R4:
+   index: 4
+   asn: 65104
+   winbox_port: 8004
+   ipv4: 172.20.0.4
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::4
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:04::/40 
 
-R5:
-  asn: 65105
-  ipv4: 172.20.0.5/24
-  ipv6: 2001:db8:d::5/64
-  prefix_origin: 2001:db8:05::/40 
+ R5:
+   index: 5
+   asn: 65105
+   winbox_port: 8005
+   ipv4: 172.20.0.5
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::5
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:05::/40 
 
-R6:
-  asn: 65106
-  ipv4: 172.20.0.6/24
-  ipv6: 2001:db8:d::6/64
-  prefix_origin: 2001:db8:06::/40 
+ R6:
+   index: 6
+   asn: 65106
+   winbox_port: 8006
+   ipv4: 172.20.0.6
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::6
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:06::/40 
 
-R7:
-  asn: 65107
-  ipv4: 172.20.0.7/24
-  ipv6: 2001:db8:d::7/64
-  prefix_origin: 2001:db8:07::/40 
+ R7:
+   index: 7
+   asn: 65107
+   winbox_port: 8007
+   ipv4: 172.20.0.7
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::7
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:07::/40 
 
-R8:
-  asn: 65108
-  ipv4: 172.20.0.8/24
-  ipv6: 2001:db8:d::8/64
-  prefix_origin: 2001:db8:08::/40 
+ R8:
+   index: 8
+   asn: 65108
+   winbox_port: 8008
+   ipv4: 172.20.0.8
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::8
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:08::/40 
 
-R9:
-  asn: 65109
-  ipv4: 172.20.0.9/24
-  ipv6: 2001:db8:d::9/64
-  prefix_origin: 2001:db8:09::/40 
+ R9:
+   index: 9
+   asn: 65109
+   winbox_port: 8009
+   ipv4: 172.20.0.9
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::9
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:09::/40 
 
-R10:
-  asn: 65110
-  ipv4: 172.20.0.10/24
-  ipv6: 2001:db8:d::10/64
-  prefix_origin: 2001:db8:10::/40 
+ R10:
+   index: 10
+   asn: 65110
+   winbox_port: 8010
+   ipv4: 172.20.0.10
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::10
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:10::/40 
 
-R11:
-  asn: 65111
-  ipv4: 172.20.0.11/24
-  ipv6: 2001:db8:d::11/64
-  prefix_origin: 2001:db8:11::/40 
+ R11:
+   index: 11
+   asn: 65111
+   winbox_port: 8011
+   ipv4: 172.20.0.11
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::11
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:11::/40 
 
-R12:
-  asn: 65112
-  ipv4: 172.20.0.12/24
-  ipv6: 2001:db8:d::12/64
-  prefix_origin: 2001:db8:12::/40 
+ R12:
+   index: 12
+   asn: 65112
+   winbox_port: 8012
+   ipv4: 172.20.0.12
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::12
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:12::/40 
 
-R13:
-  asn: 65113
-  ipv4: 172.20.0.13/24
-  ipv6: 2001:db8:d::13/64
-  prefix_origin: 2001:db8:13::/40 
+ R13:
+   index: 13
+   asn: 65113
+   winbox_port: 8013
+   ipv4: 172.20.0.13
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::13
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:13::/40 
 
-R14:
-  asn: 65114
-  ipv4: 172.20.0.14/24
-  ipv6: 2001:db8:d::14/64
-  prefix_origin: 2001:db8:14::/40 
+ R14:
+   index: 14
+   asn: 65114
+   winbox_port: 8014
+   ipv4: 172.20.0.14
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::14
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:14::/40 
 
-R15:
-  asn: 65115
-  ipv4: 172.20.0.15/24
-  ipv6: 2001:db8:d::15/64
-  prefix_origin: 2001:db8:15::/40 
+ R15:
+   index: 15
+   asn: 65115
+   winbox_port: 8015
+   ipv4: 172.20.0.15
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::15
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:15::/40 
 
-R16:
-  asn: 65116
-  ipv4: 172.20.0.16/24
-  ipv6: 2001:db8:d::16/64
-  prefix_origin: 2001:db8:16::/40 
+ R16:
+   index: 16
+   asn: 65116
+   winbox_port: 8016
+   ipv4: 172.20.0.16
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::16
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:16::/40 
 
-R17:
-  asn: 65117
-  ipv4: 172.20.0.17/24
-  ipv6: 2001:db8:d::17/64
-  prefix_origin: 2001:db8:17::/40 
+ R17:
+   index: 17
+   asn: 65117
+   winbox_port: 8017
+   ipv4: 172.20.0.17
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::17
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:17::/40 
 
-R18:
-  asn: 65118
-  ipv4: 172.20.0.18/24
-  ipv6: 2001:db8:d::18/64
-  prefix_origin: 2001:db8:18::/40 
+ R18:
+   index: 18
+   asn: 65118
+   winbox_port: 8018
+   ipv4: 172.20.0.18
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::18
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:18::/40 
 
-R19:
-  asn: 65119
-  ipv4: 172.20.0.19/24
-  ipv6: 2001:db8:d::19/64
-  prefix_origin: 2001:db8:19::/40 
+ R19:
+   index: 19
+   asn: 65119
+   winbox_port: 8019
+   ipv4: 172.20.0.19
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::19
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:19::/40 
 
-R20:
-  asn: 65120
-  ipv4: 172.20.0.20/24
-  ipv6: 2001:db8:d::20/64
-  prefix_origin: 2001:db8:20::/40 
+ R20:
+   index: 20
+   asn: 65120
+   winbox_port: 8020
+   ipv4: 172.20.0.20
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::20
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:20::/40 
 
-R21:
-  asn: 65121
-  ipv4: 172.20.0.21/24
-  ipv6: 2001:db8:d::21/64
-  prefix_origin: 2001:db8:21::/40 
+ R21:
+   index: 21
+   asn: 65121
+   winbox_port: 8021
+   ipv4: 172.20.0.21
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::21
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:21::/40 
 
-R22:
-  asn: 65122
-  ipv4: 172.20.0.22/24
-  ipv6: 2001:db8:d::22/64
-  prefix_origin: 2001:db8:22::/40 
+ R22:
+   index: 22
+   asn: 65122
+   winbox_port: 8022
+   ipv4: 172.20.0.22
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::22
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:22::/40 
 
-R23:
-  asn: 65123
-  ipv4: 172.20.0.23/24
-  ipv6: 2001:db8:d::23/64
-  prefix_origin: 2001:db8:23::/40 
+ R23:
+   index: 23
+   asn: 65123
+   winbox_port: 8023
+   ipv4: 172.20.0.23
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::23
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:23::/40 
 
-R24:
-  asn: 65124
-  ipv4: 172.20.0.24/24
-  ipv6: 2001:db8:d::24/64
-  prefix_origin: 2001:db8:24::/40 
+ R24:
+   index: 24
+   asn: 65124
+   winbox_port: 8024
+   ipv4: 172.20.0.24
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::24
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:24::/40 
 
-R25:
-  asn: 65125
-  ipv4: 172.20.0.25/24
-  ipv6: 2001:db8:d::25/64
-  prefix_origin: 2001:db8:25::/40 
+ R25:
+   index: 25
+   asn: 65125
+   winbox_port: 8025
+   ipv4: 172.20.0.25
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::25
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:25::/40 
 
-R26:
-  asn: 65126
-  ipv4: 172.20.0.26/24
-  ipv6: 2001:db8:d::26/64
-  prefix_origin: 2001:db8:26::/40 
+ R26:
+   index: 26
+   asn: 65126
+   winbox_port: 8026
+   ipv4: 172.20.0.26
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::26
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:26::/40 
 
-R27:
-  asn: 65127
-  ipv4: 172.20.0.27/24
-  ipv6: 2001:db8:d::27/64
-  prefix_origin: 2001:db8:27::/40 
+ R27:
+   index: 27
+   asn: 65127
+   winbox_port: 8027
+   ipv4: 172.20.0.27
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::27
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:27::/40 
 
-R28:
-  asn: 65128
-  ipv4: 172.20.0.28/24
-  ipv6: 2001:db8:d::28/64
-  prefix_origin: 2001:db8:28::/40 
+ R28:
+   index: 28
+   asn: 65128
+   winbox_port: 8028
+   ipv4: 172.20.0.28
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::28
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:28::/40 
 
-R29:
-  asn: 65129
-  ipv4: 172.20.0.29/24
-  ipv6: 2001:db8:d::29/64
-  prefix_origin: 2001:db8:29::/40 
+ R29:
+   index: 29
+   asn: 65129
+   winbox_port: 8029
+   ipv4: 172.20.0.29
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::29
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:29::/40 
 
-R30:
-  asn: 65130
-  ipv4: 172.20.0.30/24
-  ipv6: 2001:db8:d::30/64
-  prefix_origin: 2001:db8:30::/40 
+ R30:
+   index: 30
+   asn: 65130
+   winbox_port: 8030
+   ipv4: 172.20.0.30
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::30
+   ipv6_mask: 64
+   prefix_origin: 2001:db8:30::/40 
 
-CPE1:
-  ipv4: 172.20.0.101/24
-  ipv6: 2001:db8:d::101/64 
+CPE:
+ CPE1:
+   index: 101 
+   winbox_port: 9001
+   ipv4: 172.20.0.101
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::101
+   ipv6_mask: 64 
 
-CPE2:
-  ipv4: 172.20.0.102/24
-  ipv6: 2001:db8:d::102/64 
+ CPE2:
+   index: 102 
+   winbox_port: 9002
+   ipv4: 172.20.0.102
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::102
+   ipv6_mask: 64 
 
-CPE3:
-  ipv4: 172.20.0.103/24
-  ipv6: 2001:db8:d::103/64 
+ CPE3:
+   index: 103 
+   winbox_port: 9003
+   ipv4: 172.20.0.103
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::103
+   ipv6_mask: 64 
 
-CPE4:
-  ipv4: 172.20.0.104/24
-  ipv6: 2001:db8:d::104/64 
+ CPE4:
+   index: 104 
+   winbox_port: 9004
+   ipv4: 172.20.0.104
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::104
+   ipv6_mask: 64 
 
-CPE5:
-  ipv4: 172.20.0.105/24
-  ipv6: 2001:db8:d::105/64 
+ CPE5:
+   index: 105 
+   winbox_port: 9005
+   ipv4: 172.20.0.105
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::105
+   ipv6_mask: 64 
 
-CPE6:
-  ipv4: 172.20.0.106/24
-  ipv6: 2001:db8:d::106/64 
+ CPE6:
+   index: 106 
+   winbox_port: 9006
+   ipv4: 172.20.0.106
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::106
+   ipv6_mask: 64 
 
-CPE7:
-  ipv4: 172.20.0.107/24
-  ipv6: 2001:db8:d::107/64 
+ CPE7:
+   index: 107 
+   winbox_port: 9007
+   ipv4: 172.20.0.107
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::107
+   ipv6_mask: 64 
 
-CPE8:
-  ipv4: 172.20.0.108/24
-  ipv6: 2001:db8:d::108/64 
+ CPE8:
+   index: 108 
+   winbox_port: 9008
+   ipv4: 172.20.0.108
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::108
+   ipv6_mask: 64 
 
-CPE9:
-  ipv4: 172.20.0.109/24
-  ipv6: 2001:db8:d::109/64 
+ CPE9:
+   index: 109 
+   winbox_port: 9009
+   ipv4: 172.20.0.109
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::109
+   ipv6_mask: 64 
 
-CPE10:
-  ipv4: 172.20.0.110/24
-  ipv6: 2001:db8:d::110/64 
+ CPE10:
+   index: 110
+   winbox_port: 9010
+   ipv4: 172.20.0.110
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::110
+   ipv6_mask: 64 
 
-CPE11:
-  ipv4: 172.20.0.111/24
-  ipv6: 2001:db8:d::111/64 
+ CPE11:
+   index: 111
+   winbox_port: 9011
+   ipv4: 172.20.0.111
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::111
+   ipv6_mask: 64 
 
-CPE12:
-  ipv4: 172.20.0.112/24
-  ipv6: 2001:db8:d::112/64 
+ CPE12:
+   index: 112
+   winbox_port: 9012
+   ipv4: 172.20.0.112
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::112
+   ipv6_mask: 64 
 
-CPE13:
-  ipv4: 172.20.0.113/24
-  ipv6: 2001:db8:d::113/64 
+ CPE13:
+   index: 113
+   winbox_port: 9013
+   ipv4: 172.20.0.113
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::113
+   ipv6_mask: 64 
 
-CPE14:
-  ipv4: 172.20.0.114/24
-  ipv6: 2001:db8:d::114/64 
+ CPE14:
+   index: 114
+   winbox_port: 9014
+   ipv4: 172.20.0.114
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::114
+   ipv6_mask: 64 
 
-CPE15:
-  ipv4: 172.20.0.115/24
-  ipv6: 2001:db8:d::115/64 
+ CPE15:
+   index: 115
+   winbox_port: 9015
+   ipv4: 172.20.0.115
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::115
+   ipv6_mask: 64 
 
-CPE16:
-  ipv4: 172.20.0.116/24
-  ipv6: 2001:db8:d::116/64 
+ CPE16:
+   index: 116
+   winbox_port: 9016
+   ipv4: 172.20.0.116
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::116
+   ipv6_mask: 64 
 
-CPE17:
-  ipv4: 172.20.0.117/24
-  ipv6: 2001:db8:d::117/64 
+ CPE17:
+   index: 117
+   winbox_port: 9017
+   ipv4: 172.20.0.117
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::117
+   ipv6_mask: 64 
 
-CPE18:
-  ipv4: 172.20.0.118/24
-  ipv6: 2001:db8:d::118/64 
+ CPE18:
+   index: 118
+   winbox_port: 9018
+   ipv4: 172.20.0.118
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::118
+   ipv6_mask: 64 
 
-CPE19:
-  ipv4: 172.20.0.119/24
-  ipv6: 2001:db8:d::119/64 
+ CPE19:
+   index: 119
+   winbox_port: 9019
+   ipv4: 172.20.0.119
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::119
+   ipv6_mask: 64 
 
-CPE20:
-  ipv4: 172.20.0.120/24
-  ipv6: 2001:db8:d::120/64 
+ CPE20:
+   index: 120
+   winbox_port: 9020
+   ipv4: 172.20.0.120
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::120
+   ipv6_mask: 64 
 
-CPE21:
-  ipv4: 172.20.0.121/24
-  ipv6: 2001:db8:d::121/64 
+ CPE21:
+   index: 121
+   winbox_port: 9021
+   ipv4: 172.20.0.121
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::121
+   ipv6_mask: 64 
 
-CPE22:
-  ipv4: 172.20.0.122/24
-  ipv6: 2001:db8:d::122/64 
+ CPE22:
+   index: 122
+   winbox_port: 9022
+   ipv4: 172.20.0.122
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::122
+   ipv6_mask: 64 
 
-CPE23:
-  ipv4: 172.20.0.123/24
-  ipv6: 2001:db8:d::123/64 
+ CPE23:
+   index: 123
+   winbox_port: 9023
+   ipv4: 172.20.0.123
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::123
+   ipv6_mask: 64 
 
-CPE24:
-  ipv4: 172.20.0.124/24
-  ipv6: 2001:db8:d::124/64 
+ CPE24:
+   index: 124
+   winbox_port: 9024
+   ipv4: 172.20.0.124
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::124
+   ipv6_mask: 64 
 
-CPE25:
-  ipv4: 172.20.0.125/24
-  ipv6: 2001:db8:d::125/64 
+ CPE25:
+   index: 125
+   winbox_port: 9025
+   ipv4: 172.20.0.125
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::125
+   ipv6_mask: 64 
 
-CPE26:
-  ipv4: 172.20.0.126/24
-  ipv6: 2001:db8:d::126/64 
+ CPE26:
+   index: 126
+   winbox_port: 9026
+   ipv4: 172.20.0.126
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::126
+   ipv6_mask: 64 
 
-CPE27:
-  ipv4: 172.20.0.127/24
-  ipv6: 2001:db8:d::127/64 
+ CPE27:
+   index: 127
+   winbox_port: 9027
+   ipv4: 172.20.0.127
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::127
+   ipv6_mask: 64 
 
-CPE28:
-  ipv4: 172.20.0.128/24
-  ipv6: 2001:db8:d::128/64 
+ CPE28:
+   index: 128
+   winbox_port: 9028
+   ipv4: 172.20.0.128
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::128
+   ipv6_mask: 64 
 
-CPE29:
-  ipv4: 172.20.0.129/24
-  ipv6: 2001:db8:d::129/64 
+ CPE29:
+   index: 129
+   winbox_port: 9029
+   ipv4: 172.20.0.129
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::129
+   ipv6_mask: 64 
 
-CPE30:
-  ipv4: 172.20.0.130/24
-  ipv6: 2001:db8:d::130/64 
+ CPE30:
+   index: 130
+   winbox_port: 9030
+   ipv4: 172.20.0.130
+   ipv4_mask: 24
+   ipv6: 2001:db8:d::130
+   ipv6_mask: 64 
 
+Radius:
+  ipv4: 172.20.0.200
+  ipv4_mask: 24
+  ipv6: 2001:db8:d::200
+  ipv6_mask: 64 
+
+GW:
+  ipv4: 172.20.0.254
+  ipv4_mask: 24
+  ipv6: 2001:db8:d::254
+  ipv6_mask: 64

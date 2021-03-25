@@ -1,0 +1,52 @@
+---
+  - hosts: gw.lab.innog.net
+    gather_facts: no
+    connection: ansible.netcommon.network_cli
+    user: robot
+
+    vars: 
+      ansible_network_os: vyos.vyos.vyos
+    
+    tasks: 
+
+      - name: Include ipam variables
+        include_vars: 
+          file: ../common/ipam.yml
+        tags: always  
+
+      - name: Set hostname
+        vyos.vyos.vyos_config:
+          lines:
+          - set system host-name {{ inventory_hostname }}
+
+      - name: Interface Configuration
+        vyos.vyos.vyos_config:
+          lines:
+          - set interfaces ethernet eth0 description "Connected to Vultr for Internet access"
+          - set interfaces ethernet eth1 duplex 'auto'
+          - set interfaces ethernet eth1 description "Connected to mgmt network"
+          - set interfaces ethernet eth1 address "{{ GW.ipv4 }}/{{ GW.ipv4_mask }}"
+          - set interfaces ethernet eth1 address "{{ GW.ipv6 }}/{{ GW.ipv6_mask }}"
+        tags: interface  
+
+      - name: Create destination NAT rules for the lab access for provider routers
+        vyos.vyos.vyos_config:
+          lines:
+           - set nat destination rule "{{ item.value.index }}" destination port "{{ item.value.winbox_port }}"
+           - set nat destination rule "{{ item.value.index }}" inbound-interface 'eth0'
+           - set nat destination rule "{{ item.value.index }}" protocol 'tcp'
+           - set nat destination rule "{{ item.value.index }}" translation address "{{ item.value.ipv4 }}"
+           - set nat destination rule "{{ item.value.index }}" translation port "{{ item.value.winbox_port }}"
+        with_dict: "{{ R }}"  
+        tags: dnat   
+
+      - name: Create destination NAT rules for the lab access for customer routers
+        vyos.vyos.vyos_config:
+          lines:
+           - set nat destination rule "{{ item.value.index }}" destination port "{{ item.value.winbox_port }}"
+           - set nat destination rule "{{ item.value.index }}" inbound-interface 'eth0'
+           - set nat destination rule "{{ item.value.index }}" protocol 'tcp'
+           - set nat destination rule "{{ item.value.index }}" translation address "{{ item.value.ipv4 }}"
+           - set nat destination rule "{{ item.value.index }}" translation port "{{ item.value.winbox_port }}"
+        with_dict: "{{ CPE }}"  
+        tags: dnat
