@@ -8,6 +8,16 @@
       - name: Ensure packages are latest
         apt: name=* state=latest
 
+      - name: Update netplan
+        copy: 
+          src: radius-netplan.conf
+          dest: /etc/netplan/10-ens3.yaml
+        tags: netplan
+        
+      - name: Apply netplan config 
+        command: netplan apply
+        tags: netplan
+
       - name: Ensure freeradius is installed
         apt: name=freeradius state=latest
 

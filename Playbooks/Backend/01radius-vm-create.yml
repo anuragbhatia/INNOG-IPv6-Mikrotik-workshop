@@ -1,5 +1,6 @@
 ---
   - hosts: localhost 
+    gather_facts: no
 
     vars:
         api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
@@ -17,11 +18,12 @@
               - anurag-laptop
               - anurag@devops01.nue.anuragbhatia.com
           region: Singapore
-          # private_network_enabled: yes
           state: present
           force: yes
-        # register: vultr_output
 
-      # - debug: 
-      #     var: vultr_output    
-
+      - name: Attach to mgmt network
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop:           
+        - {router: 'radius.lab.innog.net', action: 'add'}

@@ -1,5 +1,6 @@
 ---
   - hosts: localhost 
+    gather_facts: no
 
     vars:
         api_key: "{{ lookup('ini', 'api_key type=properties file=~/.vultr.config') }}"
@@ -18,70 +19,108 @@
           force: yes          
         loop:
           - R1
-          - R2
-          - R3
-          - R4
-          - R5
-          - R6
-          - R7
-          - R8
-          - R9
-          - R10
-          - R11
-          - R12
-          - R13
-          - R14
-          - R15
-          - R16
-          - R17
-          - R18
-          - R19
-          - R20
-          - R21
-          - R22
-          - R23
-          - R24
-          - R25
-          - R26
-          - R27
-          - R28
-          - R29
-          - R30
-        async: 1800
-        poll: 0
+        #   - R2
+        #   - R3
+        #   - R4
+        #   - R5
+        #   - R6
+        #   - R7
+        #   - R8
+        #   - R9
+        #   - R10
+        #   - R11
+        #   - R12
+        #   - R13
+        #   - R14
+        #   - R15
+        #   - R16
+        #   - R17
+        #   - R18
+        #   - R19
+        #   - R20
+        #   - R21
+        #   - R22
+        #   - R23
+        #   - R24
+        #   - R25
+        #   - R26
+        #   - R27
+        #   - R28
+        #   - R29
+        #   - R30
+        # async: 1800
+        # poll: 0
 
-      - name: Attach each provider router to respective circuits in group 1
+
+      - name: Attach each provider router to mgmt network
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop: 
+        - {router: 'R1', action: 'add'}
+        # - {router: 'R2', action: 'add'}
+        # - {router: 'R3', action: 'add'}
+        # - {router: 'R4', action: 'add'}
+        # - {router: 'R5', action: 'add'}
+        # - {router: 'R6', action: 'add'}
+        # - {router: 'R7', action: 'add'}
+        # - {router: 'R8', action: 'add'}
+        # - {router: 'R9', action: 'add'}
+        # - {router: 'R10', action: 'add'}
+        # - {router: 'R11', action: 'add'}
+        # - {router: 'R12', action: 'add'}
+        # - {router: 'R13', action: 'add'}
+        # - {router: 'R14', action: 'add'}
+        # - {router: 'R15', action: 'add'}
+        # - {router: 'R16', action: 'add'}
+        # - {router: 'R17', action: 'add'}
+        # - {router: 'R18', action: 'add'}
+        # - {router: 'R19', action: 'add'}
+        # - {router: 'R20', action: 'add'}
+        # - {router: 'R21', action: 'add'}
+        # - {router: 'R22', action: 'add'}
+        # - {router: 'R23', action: 'add'}
+        # - {router: 'R24', action: 'add'}
+        # - {router: 'R25', action: 'add'}
+        # - {router: 'R26', action: 'add'}
+        # - {router: 'R27', action: 'add'}
+        # - {router: 'R28', action: 'add'}
+        # - {router: 'R29', action: 'add'}
+        # - {router: 'R30', action: 'add'}
+
+
+      - name: Attach each provider router to CPE 
         shell: ../common/private-network-manage.sh "{{ item.router }}" "{{ item.network }}" "{{ item.action }}"
         args:
           executable: /bin/bash
         loop: 
         - {router: 'R1', network: 'R1-CPE1', action: 'add'}
-        - {router: 'R2', network: 'R2-CPE2', action: 'add'}
-        - {router: 'R3', network: 'R3-CPE3', action: 'add'}
-        - {router: 'R4', network: 'R4-CPE4', action: 'add'}
-        - {router: 'R5', network: 'R5-CPE5', action: 'add'}
-        - {router: 'R6', network: 'R6-CPE6', action: 'add'}
-        - {router: 'R7', network: 'R7-CPE7', action: 'add'}
-        - {router: 'R8', network: 'R8-CPE8', action: 'add'}
-        - {router: 'R9', network: 'R9-CPE9', action: 'add'}
-        - {router: 'R10', network: 'R10-CPE10', action: 'add'}
-        - {router: 'R11', network: 'R11-CPE11', action: 'add'}
-        - {router: 'R12', network: 'R12-CPE12', action: 'add'}
-        - {router: 'R13', network: 'R13-CPE13', action: 'add'}
-        - {router: 'R14', network: 'R14-CPE14', action: 'add'}
-        - {router: 'R15', network: 'R15-CPE15', action: 'add'}
-        - {router: 'R16', network: 'R16-CPE16', action: 'add'}
-        - {router: 'R17', network: 'R17-CPE17', action: 'add'}
-        - {router: 'R18', network: 'R18-CPE18', action: 'add'}
-        - {router: 'R19', network: 'R19-CPE19', action: 'add'}
-        - {router: 'R20', network: 'R20-CPE20', action: 'add'}
-        - {router: 'R21', network: 'R21-CPE21', action: 'add'}
-        - {router: 'R22', network: 'R22-CPE22', action: 'add'}
-        - {router: 'R23', network: 'R23-CPE23', action: 'add'}
-        - {router: 'R24', network: 'R24-CPE24', action: 'add'}
-        - {router: 'R25', network: 'R25-CPE25', action: 'add'}
-        - {router: 'R26', network: 'R26-CPE26', action: 'add'}
-        - {router: 'R27', network: 'R27-CPE27', action: 'add'}
-        - {router: 'R28', network: 'R28-CPE28', action: 'add'}
-        - {router: 'R29', network: 'R29-CPE29', action: 'add'}
-        - {router: 'R30', network: 'R30-CPE30', action: 'add'}
+        # - {router: 'R2', network: 'R2-CPE2', action: 'add'}
+        # - {router: 'R3', network: 'R3-CPE3', action: 'add'}
+        # - {router: 'R4', network: 'R4-CPE4', action: 'add'}
+        # - {router: 'R5', network: 'R5-CPE5', action: 'add'}
+        # - {router: 'R6', network: 'R6-CPE6', action: 'add'}
+        # - {router: 'R7', network: 'R7-CPE7', action: 'add'}
+        # - {router: 'R8', network: 'R8-CPE8', action: 'add'}
+        # - {router: 'R9', network: 'R9-CPE9', action: 'add'}
+        # - {router: 'R10', network: 'R10-CPE10', action: 'add'}
+        # - {router: 'R11', network: 'R11-CPE11', action: 'add'}
+        # - {router: 'R12', network: 'R12-CPE12', action: 'add'}
+        # - {router: 'R13', network: 'R13-CPE13', action: 'add'}
+        # - {router: 'R14', network: 'R14-CPE14', action: 'add'}
+        # - {router: 'R15', network: 'R15-CPE15', action: 'add'}
+        # - {router: 'R16', network: 'R16-CPE16', action: 'add'}
+        # - {router: 'R17', network: 'R17-CPE17', action: 'add'}
+        # - {router: 'R18', network: 'R18-CPE18', action: 'add'}
+        # - {router: 'R19', network: 'R19-CPE19', action: 'add'}
+        # - {router: 'R20', network: 'R20-CPE20', action: 'add'}
+        # - {router: 'R21', network: 'R21-CPE21', action: 'add'}
+        # - {router: 'R22', network: 'R22-CPE22', action: 'add'}
+        # - {router: 'R23', network: 'R23-CPE23', action: 'add'}
+        # - {router: 'R24', network: 'R24-CPE24', action: 'add'}
+        # - {router: 'R25', network: 'R25-CPE25', action: 'add'}
+        # - {router: 'R26', network: 'R26-CPE26', action: 'add'}
+        # - {router: 'R27', network: 'R27-CPE27', action: 'add'}
+        # - {router: 'R28', network: 'R28-CPE28', action: 'add'}
+        # - {router: 'R29', network: 'R29-CPE29', action: 'add'}
+        # - {router: 'R30', network: 'R30-CPE30', action: 'add'}

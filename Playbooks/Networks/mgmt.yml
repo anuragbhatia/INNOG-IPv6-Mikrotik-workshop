@@ -23,43 +23,7 @@
         tags: create
 
 
-      - name: Attach each provider router to private network
-        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
-        args:
-          executable: /bin/bash
-        loop: 
-        - {router: 'R1', action: 'add'}
-        - {router: 'R2', action: 'add'}
-        - {router: 'R3', action: 'add'}
-        - {router: 'R4', action: 'add'}
-        - {router: 'R5', action: 'add'}
-        - {router: 'R6', action: 'add'}
-        - {router: 'R7', action: 'add'}
-        - {router: 'R8', action: 'add'}
-        - {router: 'R9', action: 'add'}
-        - {router: 'R10', action: 'add'}
-        - {router: 'R11', action: 'add'}
-        - {router: 'R12', action: 'add'}
-        - {router: 'R13', action: 'add'}
-        - {router: 'R14', action: 'add'}
-        - {router: 'R15', action: 'add'}
-        - {router: 'R16', action: 'add'}
-        - {router: 'R17', action: 'add'}
-        - {router: 'R18', action: 'add'}
-        - {router: 'R19', action: 'add'}
-        - {router: 'R20', action: 'add'}
-        - {router: 'R21', action: 'add'}
-        - {router: 'R22', action: 'add'}
-        - {router: 'R23', action: 'add'}
-        - {router: 'R24', action: 'add'}
-        - {router: 'R25', action: 'add'}
-        - {router: 'R26', action: 'add'}
-        - {router: 'R27', action: 'add'}
-        - {router: 'R28', action: 'add'}
-        - {router: 'R29', action: 'add'}
-        - {router: 'R30', action: 'add'}
-
-      - name: Attach each customer router to private network
+      - name: Attach each customer router to mgmt network
         shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
@@ -100,5 +64,5 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'gw.lab.innog.net', action: 'add'}
+        # - {router: 'gw.lab.innog.net', action: 'add'}
         - {router: 'radius.lab.innog.net', action: 'add'}        
