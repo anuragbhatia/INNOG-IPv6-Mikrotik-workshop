@@ -12,7 +12,7 @@
       apt: name=* state=latest
 
     - name: Ensure required dependencies are resolved
-      apt: name= "{{ item.name }}" state=latest
+      apt: name="{{ item.name }}" state=latest
       loop:
        - { name: 'git' }
        - { name: 'jq' } 
@@ -22,4 +22,3 @@
       pip: 
         name: paramiko 
 
-        
