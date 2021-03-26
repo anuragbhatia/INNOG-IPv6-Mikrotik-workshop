@@ -19,6 +19,16 @@
           lines:
           - set system host-name {{ inventory_hostname }}
 
+      - name: Set user accounts
+        vyos.vyos.vyos_config:
+          lines:
+          - set system login user "{{ item.user }}" authentication public-keys "{{ item.user }}" type "{{ item.type }}"
+          - set system login user anurag authentication public-keys 'anurag' key "{{ item.key }}"
+        loop: 
+         - { user: 'anurag', type: 'ssh-rsa' , key: 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCmMk8LKEbR1blCLm4bINU1LeYlQjk54u77N9JAcOgOgEj9yTFl3mWkDybp8+tAnVLixmpdqbqLXtgIMYArLs3DlXQtCH14MAhKfm8a1bCcx5hvUSGi5wikuLgxlGosFe1RCVTwF7QI1edP2uDHA/UigzIdqFBwtM/KHZFpvIA/5kN5CaEgQF6+y5TNerbmVdrt/lBMOL8Z8ST80o5o9JsBiH5r7AtHBe5vjAgz3UsUfuBNdhtUE3nVLmP64ZwUfR5ZcS/xbZCCZP3eXyWFUCbIFqAfdqmGDbecTEYdbPXdt4AHZXd869hAG/JahL9ZSZjUaoi9DojlHDBwheKs71fKAnsbQpURQ+TU0coX+L7+bEm16WR8o0Jqjj1syvDqitiaeRpqQfgBVxaglnbr1AkgbJxxifAokYIRYVoGMGxsKX42lSgwiQ6SxdOMwPNjbn1QtkOKDl11OmJR/p46aC+dLKZZb5T5Lseurl7bboQxTDr+dCDokpgcjY0d3iyW1mnR+akYrY0/SRTXCjK9FoRghZsiUJww+nkVFp3/gfhvn/K0HihbB7ncvs1W6sEcpIyE0PgR3ilZAniidh0Hjy8ryeV+21dUUMCpiYHR+NkQgVc1//J8fuEdajL5q5Z8QnUIqTaygyF71iOIr1/4PNaorj3QWmy7A/S90E14fVfkdQ=='}
+         - { user: 'rahul', type: 'ssh-rsa' , key: 'AAAAB3NzaC1yc2EAAAADAQABAAABgQC5VUixmBCekq43uEvjUT3qRSaLDAoNIYIRvUg3npTANx9G6MOEPhqTPBRGiiLmdykKbi8dXr/CH9kqaP8LpLfXEJBMPt31P4hJQyCNtgxm6G6rPUZF1SaxVrr3vWiucfiS0fRv9/mTrI9DdLy3Covrq+FdmhaHU+XzkBRdiA19Amoe/hEiQLwrBHAiGYBtorr2AKTyaLPCBmDzYsb3G5sT9J1cL9ZK+jjlolIqG6VGKuTpItjqls0MlJrjUW/vUkoslCggS9VcZTHYiava5snEkqmMZypQ3+clOYxI+UDTmlD27JfbU1xH9If8+gAaMA5Iiqn2L575TLYwpfdrweB8Jsh7YgSfYy+33TrBRvWYia1tlu6wmaxI6tM8iLHSoA7BBbl0CmxSLx5LdXc24I29FDdm57H4Y+3GzTrar7hAdaTzQj6KUh8krEfue3mEjohbxujlXeBTGQBM8n5vIQ5wgARg0gShOvnQCfH3N//qfcECO0ZyNvJo+SvZycxmT0k='}
+        tags: account  
+
       - name: Interface Configuration
         vyos.vyos.vyos_config:
           lines:

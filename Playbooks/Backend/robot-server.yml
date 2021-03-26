@@ -1,0 +1,25 @@
+# This playbook will setup provisioning server itself to manage things in the cloud 
+# Ensure ansible is installed locally - apt install ansible and then trigger this playbook
+
+---
+ - hosts: localhost 
+   connection: local
+   gather_facts: no
+
+
+   tasks: 
+    - name: Ensure packages are latest
+      apt: name=* state=latest
+
+    - name: Ensure required dependencies are resolved
+      apt: name= "{{ item.name }}" state=latest
+      loop:
+       - { name: 'git' }
+       - { name: 'jq' } 
+       - { name: 'python3-pip' }
+
+    - name: Install Paramiko 
+      pip: 
+        name: paramiko 
+
+        

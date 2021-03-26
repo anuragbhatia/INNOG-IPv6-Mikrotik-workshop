@@ -1,0 +1,231 @@
+---
+  - hosts: all
+    gather_facts: no
+    connection: ansible.netcommon.network_cli
+
+    vars: 
+      ansible_network_os: routeros
+      ansible_user: robot # Only username is defined. Access is via SSH keys. 
+  
+    tasks:      
+        - name: Include ipam variables
+          include_vars: 
+            file: ../common/ipam.yml
+              
+        - name: Configure management addresses on R1
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R1.ipv4 }}/{{ R.R1.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R1.ipv6 }}/{{ R.R1.ipv6_mask }}" interface=ether2 advertise=no
+          when: inventory_hostname == "R1"
+
+        - name: Configure management addresses on R2
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R2.ipv4 }}/{{ R.R2.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R2.ipv6 }}/{{ R.R2.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R2"
+
+        - name: Configure management addresses on R3
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R3.ipv4 }}/{{ R.R3.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R3.ipv6 }}/{{ R.R3.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R3"
+
+        - name: Configure management addresses on R4
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R4.ipv4 }}/{{ R.R4.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R4.ipv6 }}/{{ R.R4.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R4"
+
+        - name: Configure management addresses on R5
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R5.ipv4 }}/{{ R.R5.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R5.ipv6 }}/{{ R.R5.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R5"
+
+        - name: Configure management addresses on R6
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R6.ipv4 }}/{{ R.R6.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R6.ipv6 }}/{{ R.R6.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R6"
+
+        - name: Configure management addresses on R7
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R7.ipv4 }}/{{ R.R7.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R7.ipv6 }}/{{ R.R7.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R7"
+
+        - name: Configure management addresses on R8
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R8.ipv4 }}/{{ R.R8.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R8.ipv6 }}/{{ R.R8.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R8"
+
+        - name: Configure management addresses on R9
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R9.ipv4 }}/{{ R.R9.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R9.ipv6 }}/{{ R.R9.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R9"
+
+        - name: Configure management addresses on R10
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R10.ipv4 }}/{{ R.R10.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R10.ipv6 }}/{{ R.R10.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R10"
+
+        - name: Configure management addresses on R11
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R11.ipv4 }}/{{ R.R11.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R11.ipv6 }}/{{ R.R11.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R11"
+
+        - name: Configure management addresses on R12
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R12.ipv4 }}/{{ R.R12.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R12.ipv6 }}/{{ R.R12.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R12"
+
+        - name: Configure management addresses on R13
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R13.ipv4 }}/{{ R.R13.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R13.ipv6 }}/{{ R.R13.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R13"
+
+        - name: Configure management addresses on R14
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R14.ipv4 }}/{{ R.R14.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R14.ipv6 }}/{{ R.R14.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R14"
+
+        - name: Configure management addresses on R15
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R15.ipv4 }}/{{ R.R15.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R15.ipv6 }}/{{ R.R15.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R15"
+
+        - name: Configure management addresses on R16
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R16.ipv4 }}/{{ R.R16.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R16.ipv6 }}/{{ R.R16.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R16"
+
+        - name: Configure management addresses on R17
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R17.ipv4 }}/{{ R.R17.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R17.ipv6 }}/{{ R.R17.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R17"
+
+        - name: Configure management addresses on R18
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R18.ipv4 }}/{{ R.R18.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R18.ipv6 }}/{{ R.R18.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R18"
+
+        - name: Configure management addresses on R19
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R19.ipv4 }}/{{ R.R19.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R19.ipv6 }}/{{ R.R19.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R19"
+
+        - name: Configure management addresses on R20
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R20.ipv4 }}/{{ R.R20.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R20.ipv6 }}/{{ R.R20.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R20"
+
+        - name: Configure management addresses on R21
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R21.ipv4 }}/{{ R.R21.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R21.ipv6 }}/{{ R.R21.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R21"
+
+        - name: Configure management addresses on R22
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R22.ipv4 }}/{{ R.R22.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R22.ipv6 }}/{{ R.R22.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R22"
+
+        - name: Configure management addresses on R23
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R23.ipv4 }}/{{ R.R23.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R23.ipv6 }}/{{ R.R23.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R23"
+
+        - name: Configure management addresses on R24
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R24.ipv4 }}/{{ R.R24.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R24.ipv6 }}/{{ R.R24.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R24"
+
+        - name: Configure management addresses on R25
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R25.ipv4 }}/{{ R.R25.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R25.ipv6 }}/{{ R.R25.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R25"
+
+        - name: Configure management addresses on R26
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R26.ipv4 }}/{{ R.R26.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R26.ipv6 }}/{{ R.R26.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R26"
+
+        - name: Configure management addresses on R27
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R27.ipv4 }}/{{ R.R27.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R27.ipv6 }}/{{ R.R27.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R27"
+
+        - name: Configure management addresses on R28
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R28.ipv4 }}/{{ R.R28.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R28.ipv6 }}/{{ R.R28.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R28"
+
+        - name: Configure management addresses on R29
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R29.ipv4 }}/{{ R.R29.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R29.ipv6 }}/{{ R.R29.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R29"
+
+        - name: Configure management addresses on R30
+          community.routeros.command:
+              commands:
+              - ip address add address="{{ R.R30.ipv4 }}/{{ R.R30.ipv4_mask }}" interface=ether2
+              - ipv6 address add address="{{ R.R30.ipv6 }}/{{ R.R30.ipv6_mask }}" interface=ether2
+          when: inventory_hostname == "R30"
+       
+
+
+
+
+
+        # - debug: 
+        #     var: ipv4

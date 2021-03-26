@@ -1,0 +1,10 @@
+collections:
+  - name: vyos.vyos
+    source: https://galaxy.ansible.com
+
+  - name: Ngine_Io.Vultr 
+    source: https://galaxy.ansible.com
+
+  - name: community.network
+    source: https://galaxy.ansible.com
+    

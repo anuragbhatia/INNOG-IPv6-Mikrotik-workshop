@@ -1,0 +1,36 @@
+---
+  - hosts: R
+    gather_facts: no
+    connection: ansible.netcommon.network_cli
+
+    vars: 
+      ansible_network_os: routeros
+      ansible_user: robot # Only username is defined. Access is via SSH keys. 
+  
+    tasks:      
+        - name: Include instructor credentials variables
+          include_vars: 
+            file: ../common/instructor.yml
+              
+        - name: Configure hostname
+          community.routeros.command:
+              commands:
+              - system identity set name="{{ inventory_hostname }}"
+
+        - name: Create account for instructors
+          community.routeros.command:
+              commands:
+              # - system identity set name={{ inventory_hostname }}
+
+        - name: Create account for attendee 
+          community.routeros.command:
+              commands:
+              - user add name="{{ inventory_hostname }}" group=write password="{{ attendee_password }}"
+
+        - name: Create accounts for instructors               
+          community.routeros.command:
+              commands:
+              - user add name="{{ item.username }}" group="{{ item.group }}" password="{{ item.password }}"
+          loop:    
+          - { name: "{{ anurag.username }}", cidr: "{{ anurag.password }}", group: "{{ anurag.group }}" } 
+          - { name: "{{ rahul.username }}", cidr: "{{ rahul.password }}", group: "{{ rahul.group }}" } 
