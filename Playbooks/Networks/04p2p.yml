@@ -19,12 +19,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:
-        - { name: 'R1-R2', cidr: '10.100.0.0/24'} 
-        - { name: 'R2-R4', cidr: '10.100.1.0/24'} 
-        - { name: 'R3-R4', cidr: '10.100.2.0/24'} 
-        - { name: 'R2-R5', cidr: '10.100.3.0/24'}
-        - { name: 'R4-R5', cidr: '10.100.4.0/24'}
-        - { name: 'R5-GW', cidr: '10.100.30.0/24'}
+        - { name: 'R1-R2', cidr: '10.100.0.0/24' } 
+        - { name: 'R2-R4', cidr: '10.100.1.0/24' } 
+        - { name: 'R3-R4', cidr: '10.100.2.0/24' } 
+        - { name: 'R2-R5', cidr: '10.100.3.0/24' }
+        - { name: 'R4-R5', cidr: '10.100.4.0/24' }
+        - { name: 'R5-GW', cidr: '10.100.30.0/24' }
         tags: create,group1
 
       - name: Attach P2P Networks to routers for group 1
@@ -32,17 +32,17 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R1', network:'R1-R2', action: 'add'} # port 4
-        - {router: 'R2', network:'R1-R2', action: 'add'} # port 4
-        - {router: 'R3', network:'R3-R4', action: 'add'} # port 4
-        - {router: 'R4', network:'R3-R4', action: 'add'} # port 4
-        - {router: 'R2', network:'R2-R4', action: 'add'} # port 5
-        - {router: 'R4', network:'R2-R4', action: 'add'} # port 5
-        - {router: 'R2', network:'R2-R5', action: 'add'} # port 6
-        - {router: 'R5', network:'R2-R5', action: 'add'} # port 4 
-        - {router: 'R4', network:'R4-R5', action: 'add'} # port 6 
-        - {router: 'R5', network:'R4-R5', action: 'add'} # port 5
-        - {router: 'R5', network:'R5-GW', action: 'add'} # port 6
+        - {router: 'R1', network:'R1-R2', action: 'add' } # port 4
+        - {router: 'R2', network:'R1-R2', action: 'add' } # port 4
+        - {router: 'R3', network:'R3-R4', action: 'add' } # port 4
+        - {router: 'R4', network:'R3-R4', action: 'add' } # port 4
+        - {router: 'R2', network:'R2-R4', action: 'add' } # port 5
+        - {router: 'R4', network:'R2-R4', action: 'add' } # port 5
+        - {router: 'R2', network:'R2-R5', action: 'add' } # port 6
+        - {router: 'R5', network:'R2-R5', action: 'add' } # port 4 
+        - {router: 'R4', network:'R4-R5', action: 'add' } # port 6 
+        - {router: 'R5', network:'R4-R5', action: 'add' } # port 5
+        - {router: 'R5', network:'R5-GW', action: 'add' } # port 6
         tags: attach,group1
 
       - name: Create P2P Networks for group 2
@@ -53,12 +53,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:
-        - { name: 'R6-R7', cidr: '10.100.5.0/24'}
-        - { name: 'R7-R9', cidr: '10.100.6.0/24'}
-        - { name: 'R8-R9', cidr: '10.100.7.0/24'}
+        - { name: 'R6-R7', cidr: '10.100.5.0/24' }
+        - { name: 'R7-R9', cidr: '10.100.6.0/24' }
+        - { name: 'R8-R9', cidr: '10.100.7.0/24' }
         - { name: 'R7-R10', cidr: '10.100.8.0/24'}
-        - { name: 'R9-R10', cidr: '10.100.9.0/24'}
-        - { name: 'R10-GW', cidr: '10.100.31.0/24'}
+        - { name: 'R9-R10', cidr: '10.100.9.0/24' }
+        - { name: 'R10-GW', cidr: '10.100.31.0/24' }
         tags: create,group2
 
       - name: Attach P2P Networks to routers for group 2
@@ -66,17 +66,17 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R6', network:'R6-R7', action: 'add'}   # port 4
-        - {router: 'R7', network:'R6-R7', action: 'add'}   # port 4
-        - {router: 'R8', network:'R8-R9', action: 'add'}   # port 4
-        - {router: 'R9', network:'R8-R9', action: 'add'}   # port 4
-        - {router: 'R7', network:'R7-R9', action: 'add'}   # port 5
-        - {router: 'R9', network:'R7-R9', action: 'add'}   # port 5
-        - {router: 'R7', network:'R7-R10', action: 'add'}  # port 6
-        - {router: 'R10', network:'R7-R10', action: 'add'} # port 4 
-        - {router: 'R9', network:'R9-R10', action: 'add'}  # port 6 
-        - {router: 'R10', network:'R9-R10', action: 'add'} # port 5
-        - {router: 'R10', network:'R10-GW', action: 'add'} # port 6
+        - { router: 'R6', network: 'R6-R7', action: 'add' }   # port 4
+        - { router: 'R7', network: 'R6-R7', action: 'add' }   # port 4
+        - { router: 'R8', network: 'R8-R9', action: 'add' }   # port 4
+        - { router: 'R9', network: 'R8-R9', action: 'add' }   # port 4
+        - { router: 'R7', network: 'R7-R9', action: 'add' }   # port 5
+        - { router: 'R9', network: 'R7-R9', action: 'add' }   # port 5
+        - { router: 'R7', network: 'R7-R10', action: 'add' }  # port 6
+        - { router: 'R10', network: 'R7-R10', action: 'add' } # port 4 
+        - { router: 'R9', network: 'R9-R10', action: 'add' }  # port 6 
+        - { router: 'R10', network: 'R9-R10', action: 'add' } # port 5
+        - { router: 'R10', network: 'R10-GW', action: 'add' } # port 6
         tags: attach,group2
 
       - name: Create P2P Networks for group 3
@@ -87,12 +87,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:
-        - { name: 'R11-R12', cidr: '10.100.10.0/24'}
-        - { name: 'R11-R14', cidr: '10.100.11.0/24'}
-        - { name: 'R13-R14', cidr: '10.100.12.0/24'}
-        - { name: 'R11-R15', cidr: '10.100.13.0/24'}
-        - { name: 'R14-R15', cidr: '10.100.14.0/24'}
-        - { name: 'R15-GW', cidr: '10.100.32.0/24'}                
+        - { name: 'R11-R12', cidr: '10.100.10.0/24' }
+        - { name: 'R11-R14', cidr: '10.100.11.0/24' }
+        - { name: 'R13-R14', cidr: '10.100.12.0/24' }
+        - { name: 'R11-R15', cidr: '10.100.13.0/24' }
+        - { name: 'R14-R15', cidr: '10.100.14.0/24' }
+        - { name: 'R15-GW', cidr: '10.100.32.0/24' }                
         tags: create,group3
 
       - name: Attach P2P Networks to routers for group 3
@@ -100,17 +100,17 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R11', network:'R11-R12', action: 'add'} # port 4
-        - {router: 'R12', network:'R11-R12', action: 'add'} # port 4
-        - {router: 'R13', network:'R13-R14', action: 'add'} # port 4
-        - {router: 'R14', network:'R13-R14', action: 'add'} # port 4
-        - {router: 'R11', network:'R11-R14', action: 'add'} # port 5
-        - {router: 'R14', network:'R11-R14', action: 'add'} # port 5
-        - {router: 'R11', network:'R11-R15', action: 'add'} # port 6
-        - {router: 'R15', network:'R11-R15', action: 'add'} # port 4 
-        - {router: 'R14', network:'R14-R15', action: 'add'} # port 6 
-        - {router: 'R15', network:'R14-R15', action: 'add'} # port 5
-        - {router: 'R15', network:'R15-GW', action: 'add'} # port 6
+        - { router: 'R11', network: 'R11-R12', action: 'add' } # port 4
+        - { router: 'R12', network: 'R11-R12', action: 'add' } # port 4
+        - { router: 'R13', network: 'R13-R14', action: 'add' } # port 4
+        - { router: 'R14', network: 'R13-R14', action: 'add' } # port 4
+        - { router: 'R11', network: 'R11-R14', action: 'add' } # port 5
+        - { router: 'R14', network: 'R11-R14', action: 'add' } # port 5
+        - { router: 'R11', network: 'R11-R15', action: 'add' } # port 6
+        - { router: 'R15', network: 'R11-R15', action: 'add' } # port 4 
+        - { router: 'R14', network: 'R14-R15', action: 'add' } # port 6 
+        - { router: 'R15', network: 'R14-R15', action: 'add' } # port 5
+        - { router: 'R15', network: 'R15-GW', action: 'add' } # port 6
         tags: attach,group3    
                       
       - name: Create P2P Networks for group 4
@@ -121,12 +121,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:        
-        - { name: 'R26-R27', cidr: '10.100.15.0/24'}
-        - { name: 'R26-R29', cidr: '10.100.16.0/24'}
-        - { name: 'R28-R29', cidr: '10.100.17.0/24'}
-        - { name: 'R26-R30', cidr: '10.100.18.0/24'}
-        - { name: 'R29-R30', cidr: '10.100.19.0/24'}
-        - { name: 'R30-GW', cidr: '10.100.35.0/24'}
+        - { name: 'R26-R27', cidr: '10.100.15.0/24' }
+        - { name: 'R26-R29', cidr: '10.100.16.0/24' }
+        - { name: 'R28-R29', cidr: '10.100.17.0/24' }
+        - { name: 'R26-R30', cidr: '10.100.18.0/24' }
+        - { name: 'R29-R30', cidr: '10.100.19.0/24' }
+        - { name: 'R30-GW', cidr: '10.100.35.0/24' }
         tags: create,group4
 
       - name: Attach P2P Networks to routers for group 4
@@ -134,17 +134,17 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R26', network:'R26-R27', action: 'add'} # port 4
-        - {router: 'R27', network:'R26-R27', action: 'add'} # port 4
-        - {router: 'R28', network:'R28-R29', action: 'add'} # port 4
-        - {router: 'R29', network:'R28-R29', action: 'add'} # port 4
-        - {router: 'R26', network:'R26-R29', action: 'add'} # port 5
-        - {router: 'R29', network:'R26-R29', action: 'add'} # port 5
-        - {router: 'R26', network:'R26-R30', action: 'add'} # port 6
-        - {router: 'R30', network:'R26-R30', action: 'add'} # port 4 
-        - {router: 'R29', network:'R29-R30', action: 'add'} # port 6 
-        - {router: 'R30', network:'R29-R30', action: 'add'} # port 5
-        - {router: 'R30', network:'R30-GW', action: 'add'}  # port 6
+        - { router: 'R26', network: 'R26-R27', action: 'add' } # port 4
+        - { router: 'R27', network: 'R26-R27', action: 'add' } # port 4
+        - { router: 'R28', network: 'R28-R29', action: 'add' } # port 4
+        - { router: 'R29', network: 'R28-R29', action: 'add' } # port 4
+        - { router: 'R26', network: 'R26-R29', action: 'add' } # port 5
+        - { router: 'R29', network: 'R26-R29', action: 'add' } # port 5
+        - { router: 'R26', network: 'R26-R30', action: 'add' } # port 6
+        - { router: 'R30', network: 'R26-R30', action: 'add' } # port 4 
+        - { router: 'R29', network: 'R29-R30', action: 'add' } # port 6 
+        - { router: 'R30', network: 'R29-R30', action: 'add' } # port 5
+        - { router: 'R30', network: 'R30-GW', action: 'add' }  # port 6
         tags: attach,group4               
       
       - name: Create P2P Networks for group 5
@@ -155,12 +155,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:        
-        - { name: 'R16-R17', cidr: '10.100.20.0/24'}
-        - { name: 'R16-R19', cidr: '10.100.21.0/24'}
-        - { name: 'R18-R19', cidr: '10.100.22.0/24'}
-        - { name: 'R16-R20', cidr: '10.100.23.0/24'}
-        - { name: 'R19-R20', cidr: '10.100.24.0/24'}
-        - { name: 'R20-GW', cidr: '10.100.33.0/24'}
+        - { name: 'R16-R17', cidr: '10.100.20.0/24' }
+        - { name: 'R16-R19', cidr: '10.100.21.0/24' }
+        - { name: 'R18-R19', cidr: '10.100.22.0/24' }
+        - { name: 'R16-R20', cidr: '10.100.23.0/24' }
+        - { name: 'R19-R20', cidr: '10.100.24.0/24' }
+        - { name: 'R20-GW', cidr: '10.100.33.0/24' }
         tags: create,group5
 
       - name: Attach P2P Networks to routers for group 5
@@ -168,17 +168,17 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R16', network:'R16-R17', action: 'add'} # port 4
-        - {router: 'R17', network:'R16-R17', action: 'add'} # port 4
-        - {router: 'R18', network:'R18-R19', action: 'add'} # port 4
-        - {router: 'R19', network:'R18-R19', action: 'add'} # port 4
-        - {router: 'R16', network:'R16-R19', action: 'add'} # port 5
-        - {router: 'R19', network:'R16-R19', action: 'add'} # port 5
-        - {router: 'R16', network:'R16-R20', action: 'add'} # port 6
-        - {router: 'R20', network:'R16-R20', action: 'add'} # port 4 
-        - {router: 'R19', network:'R19-R20', action: 'add'} # port 6 
-        - {router: 'R20', network:'R19-R20', action: 'add'} # port 5
-        - {router: 'R20', network:'R20-GW', action: 'add'}  # port 6
+        - { router: 'R16', network: 'R16-R17', action: 'add' } # port 4
+        - { router: 'R17', network: 'R16-R17', action: 'add' } # port 4
+        - { router: 'R18', network: 'R18-R19', action: 'add' } # port 4
+        - { router: 'R19', network: 'R18-R19', action: 'add' } # port 4
+        - { router: 'R16', network: 'R16-R19', action: 'add' } # port 5
+        - { router: 'R19', network: 'R16-R19', action: 'add' } # port 5
+        - { router: 'R16', network: 'R16-R20', action: 'add' } # port 6
+        - { router: 'R20', network: 'R16-R20', action: 'add' } # port 4 
+        - { router: 'R19', network: 'R19-R20', action: 'add' } # port 6 
+        - { router: 'R20', network: 'R19-R20', action: 'add' } # port 5
+        - { router: 'R20', network: 'R20-GW', action: 'add' }  # port 6
         tags: attach,group5            
 
       - name: Create P2P Networks for group 6
@@ -189,12 +189,12 @@
           api_key: "{{ api_key }}"
           state: present
         loop:                
-        - { name: 'R21-R22', cidr: '10.100.25.0/24'}
-        - { name: 'R21-R24', cidr: '10.100.26.0/24'}
-        - { name: 'R23-R24', cidr: '10.100.27.0/24'}
-        - { name: 'R21-R25', cidr: '10.100.28.0/24'}
-        - { name: 'R24-R25', cidr: '10.100.29.0/24'}      
-        - { name: 'R25-GW', cidr: '10.100.34.0/24'}  
+        - { name: 'R21-R22', cidr: '10.100.25.0/24' }
+        - { name: 'R21-R24', cidr: '10.100.26.0/24' }
+        - { name: 'R23-R24', cidr: '10.100.27.0/24' }
+        - { name: 'R21-R25', cidr: '10.100.28.0/24' }
+        - { name: 'R24-R25', cidr: '10.100.29.0/24' }      
+        - { name: 'R25-GW', cidr: '10.100.34.0/24' }  
         tags: create,group6
 
       - name: Attach P2P Networks to routers for group 6
@@ -202,15 +202,15 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'R21', network:'R21-R22', action: 'add'} # port 4
-        - {router: 'R22', network:'R21-R22', action: 'add'} # port 4
-        - {router: 'R23', network:'R23-R24, action: 'add'} # port 4
-        - {router: 'R24', network:'R23-R24', action: 'add'} # port 4
-        - {router: 'R21', network:'R21-R24', action: 'add'} # port 5
-        - {router: 'R24', network:'R21-R24', action: 'add'} # port 5
-        - {router: 'R21', network:'R21-R25', action: 'add'} # port 6
-        - {router: 'R25', network:'R21-R25', action: 'add'} # port 4 
-        - {router: 'R24', network:'R24-R25', action: 'add'} # port 6 
-        - {router: 'R25', network:'R24-R25', action: 'add'} # port 5
-        - {router: 'R25', network:'R25-GW', action: 'add'}  # port 6
+        - { router: 'R21', network: 'R21-R22', action: 'add' } # port 4
+        - { router: 'R22', network: 'R21-R22', action: 'add' } # port 4
+        - { router: 'R23', network: 'R23-R24, action: 'add' } # port 4
+        - { router: 'R24', network: 'R23-R24', action: 'add' } # port 4
+        - { router: 'R21', network: 'R21-R24', action: 'add' } # port 5
+        - { router: 'R24', network: 'R21-R24', action: 'add' } # port 5
+        - { router: 'R21', network: 'R21-R25', action: 'add' } # port 6
+        - { router: 'R25', network: 'R21-R25', action: 'add' } # port 4 
+        - { router: 'R24', network: 'R24-R25', action: 'add' } # port 6 
+        - { router: 'R25', network: 'R24-R25', action: 'add' } # port 5
+        - { router: 'R25', network: 'R25-GW', action: 'add' }  # port 6
         tags: attach,group6    
