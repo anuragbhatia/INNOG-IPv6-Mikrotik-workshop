@@ -16,11 +16,21 @@
           state: stopped
           force: yes
 
-      - name: Attach backend infra to private network
+      - name: Attach backend infra to private network - port 2
         shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
         loop:           
         - {router: 'gw.lab.innog.net', action: 'add'}
 
-
+      - name: Attach GW to P2P links
+        shell: ../common/private-network-manage.sh "{{ item.router }}" "{{ item.network }}" "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop:           
+        - {router: 'GW', network:'R5-GW', action: 'add'}   # port 3
+        - {router: 'GW', network:'R10-GW', action: 'add'}  # port 4
+        - {router: 'GW', network:'R15-GW, action: 'add'}   # port 5
+        - {router: 'GW', network:'R20-GW', action: 'add'}  # port 6
+        - {router: 'GW', network:'R25-GW', action: 'add'}  # port 7
+        - {router: 'GW', network:'R30-GW, action: 'add'}   # port 8
