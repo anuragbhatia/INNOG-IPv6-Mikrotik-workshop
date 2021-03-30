@@ -23,7 +23,7 @@
         tags: create
 
 
-      - name: Attach each customer router to mgmt network
+      - name: Attach each customer router to mgmt network - ether2 setup
         shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
         args:
           executable: /bin/bash
