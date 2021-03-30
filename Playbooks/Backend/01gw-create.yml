@@ -1,6 +1,6 @@
 ---
   - hosts: localhost 
-
+    gather_facts: no
     tasks: 
 
       - name: Create GW router 
@@ -8,13 +8,14 @@
           api_account: default
           api_retries: 1
           name: gw.lab.innog.net
+          ipv6_enabled: yes
           snapshot: Vyos
           os: Ubuntu 20.04 x64
           plan: 1024 MB RAM,25 GB SSD,1.00 TB BW
           region: Singapore
-          # private_network_enabled: yes
-          state: stopped
-          force: yes
+          state: started
+          force: yes  
+        register: result
 
       - name: Attach backend infra to private network - port 2
         shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
@@ -28,9 +29,14 @@
         args:
           executable: /bin/bash
         loop:           
-        - {router: 'GW', network:'R5-GW', action: 'add'}   # port 3
-        - {router: 'GW', network:'R10-GW', action: 'add'}  # port 4
-        - {router: 'GW', network:'R15-GW, action: 'add'}   # port 5
-        - {router: 'GW', network:'R20-GW', action: 'add'}  # port 6
-        - {router: 'GW', network:'R25-GW', action: 'add'}  # port 7
-        - {router: 'GW', network:'R30-GW, action: 'add'}   # port 8
+        - {router: 'gw.lab.innog.net', network: 'R5-GW', action: 'add'}   # port 3
+        - {router: 'gw.lab.innog.net', network: 'R10-GW', action: 'add'}  # port 4
+        - {router: 'gw.lab.innog.net', network: 'R15-GW', action: 'add'}   # port 5
+        - {router: 'gw.lab.innog.net', network: 'R20-GW', action: 'add'}  # port 6
+        - {router: 'gw.lab.innog.net', network: 'R25-GW', action: 'add'}  # port 7
+        - {router: 'gw.lab.innog.net', network: 'R30-GW', action: 'add'}   # port 8
+
+
+      - name: Print IPv4 and IPv6 address for GW
+        debug:
+          msg: Manually point access.lab.innog.net to {{ result.vultr_server.v4_main_ip }} & {{ result.vultr_server.v6_main_ip }}
