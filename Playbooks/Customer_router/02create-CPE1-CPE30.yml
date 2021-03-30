@@ -14,7 +14,8 @@
           plan: 1024 MB RAM,25 GB SSD,1.00 TB BW
           region: Singapore
           api_key: "{{ api_key }}"
-          state: stopped # Do not run until private networks is attached
+          state: absent # Do not run until private networks is attached
+          # delay: 10
           force: yes          
         loop:
           - CPE1
@@ -47,10 +48,46 @@
           - CPE28
           - CPE29
           - CPE30
-        async: 1800
-        poll: 0
+        # async: 1800
+        # poll: 0
 
-      - name: Attach each provider router to respective circuits in group 1
+      - name: Attach each customer router to mgmt network - ether2 setup
+        shell: ../common/private-network-manage.sh "{{ item.router }}" mgmt "{{ item.action }}"
+        args:
+          executable: /bin/bash
+        loop:           
+        - {router: 'CPE1', action: 'add'}
+        - {router: 'CPE2', action: 'add'}
+        - {router: 'CPE3', action: 'add'}
+        - {router: 'CPE4', action: 'add'}
+        - {router: 'CPE5', action: 'add'}
+        - {router: 'CPE6', action: 'add'}
+        - {router: 'CPE7', action: 'add'}
+        - {router: 'CPE8', action: 'add'}
+        - {router: 'CPE9', action: 'add'}
+        - {router: 'CPE10', action: 'add'}
+        - {router: 'CPE11', action: 'add'}
+        - {router: 'CPE12', action: 'add'}
+        - {router: 'CPE13', action: 'add'}
+        - {router: 'CPE14', action: 'add'}
+        - {router: 'CPE15', action: 'add'}
+        - {router: 'CPE16', action: 'add'}
+        - {router: 'CPE17', action: 'add'}
+        - {router: 'CPE18', action: 'add'}
+        - {router: 'CPE19', action: 'add'}
+        - {router: 'CPE20', action: 'add'}
+        - {router: 'CPE21', action: 'add'}
+        - {router: 'CPE22', action: 'add'}
+        - {router: 'CPE23', action: 'add'}
+        - {router: 'CPE24', action: 'add'}
+        - {router: 'CPE25', action: 'add'}
+        - {router: 'CPE26', action: 'add'}
+        - {router: 'CPE27', action: 'add'}
+        - {router: 'CPE28', action: 'add'}
+        - {router: 'CPE29', action: 'add'}
+        - {router: 'CPE30', action: 'add'}          
+
+      - name: Attach each provider router to respective circuits - ether3 setup
         shell: ../common/private-network-manage.sh "{{ item.router }}" "{{ item.network }}" "{{ item.action }}"
         args:
           executable: /bin/bash
